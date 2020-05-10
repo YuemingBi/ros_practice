@@ -1,0 +1,4 @@
+<launch>
+    <arg name="turtle_name" default="arg1" />
+    <node pkg="test3" type="turtle_spawn" args="$(arg turtle_name)" name="turtle_spawn" output="screen"/>
+</launch>

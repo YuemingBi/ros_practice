@@ -1,0 +1,6 @@
+bool data
+string turtlename
+float64 x
+float64 z
+---
+bool success

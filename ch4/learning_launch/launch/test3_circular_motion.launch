@@ -1,0 +1,7 @@
+<launch>
+    <arg name="turtle_name" default="arg1" />
+    <arg name="cmd" default="arg2" />
+    <arg name="linear.x" default="arg3" />
+    <arg name="angular.z" default="arg4" />
+    <node pkg="test3" type="circular_motion" args="$(arg turtle_name) $(arg cmd) $(arg linear.x) $(arg angular.z)" name="circular_motion" output="screen" />
+</launch>

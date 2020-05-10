@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="test3" type="motion_server" name="motion_server" />
+</launch>

@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="test1" type="vel_pose" name="vel_pose" output="screen" />
+</launch>

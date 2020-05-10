@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<robot name="robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find robot_description)/urdf/robot_body.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/sensor/kinect.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/sensor/rplidar.xacro" />
+
+  <xacro:property name="kinect_offset_x" value="-0.06" />
+	<xacro:property name="kinect_offset_y" value="0" />
+	<xacro:property name="kinect_offset_z" value="0.035" />
+
+  <xacro:property name="rplidar_offset_x" value="0" />
+	<xacro:property name="rplidar_offset_y" value="0" />
+	<xacro:property name="rplidar_offset_z" value="0.028" />
+
+  <robot_body/>
+
+  <joint name="kinect_frame_joint" type="fixed">
+		<origin xyz="${kinect_offset_x} ${kinect_offset_y} ${kinect_offset_z}" rpy="0 0 0" />
+		<parent link="plate_2_link"/>
+		<child link="camera_link"/>
+	</joint>
+
+	<xacro:kinect_camera prefix="camera"/>
+
+  <joint name="rplidar_joint" type="fixed">
+		<origin xyz="${rplidar_offset_x} ${rplidar_offset_y} ${rplidar_offset_z}" rpy="0 0 0" />
+		<parent link="plate_1_link"/>
+		<child link="laser_link"/>
+	</joint>
+
+	<xacro:rplidar prefix="laser"/>
+
+</robot>

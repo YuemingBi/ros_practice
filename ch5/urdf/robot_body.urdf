@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+
+<robot name="robot">
+  <link name="base_footprint">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- base -->
+  <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 0.033" rpy="0 0 0" />
+    <parent link="base_footprint" />
+    <child link="base_link" />
+  </joint>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.005" radius="0.13" />
+      </geometry>
+      <material name="yellow">
+        <color rgba="1 0.4 0 1" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- left_motor -->
+  <joint name="base_left_motor_joint" type="fixed">
+    <origin xyz="-0.055 0.075 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="left_motor_link" />
+  </joint>
+
+  <link name="left_motor_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder length="0.08" radius="0.02" />
+      </geometry>
+      <material name="gray">
+        <color rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- left_wheel -->
+  <joint name="left_wheel_joint" type="continuous">
+    <origin xyz="0 0.0485 0" rpy="0 0 0" />
+    <parent link="left_motor_link" />
+    <child link="left_wheel_link" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+  <link name="left_wheel_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder length="0.017" radius="0.033" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 0.9" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- right_motor -->
+  <joint name="base_right_motor_joint" type="fixed">
+    <origin xyz="-0.055 -0.075 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="right_motor_link" />
+  </joint>
+
+  <link name="right_motor_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder length="0.08" radius="0.02" />
+      </geometry>
+      <material name="gray">
+        <color rgba="0.75 0.75 0.75 1" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- right_wheel -->
+  <joint name="right_wheel_joint" type="continuous">
+    <origin xyz="0 -0.0485 0" rpy="0 0 0" />
+    <parent link="right_motor_link" />
+    <child link="right_wheel_link" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+  <link name="right_wheel_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder length="0.017" radius="0.033" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 0.9" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- front_caster -->
+  <joint name="front_caster_joint" type="continuous">
+    <origin xyz="0.1135 0 -0.0165" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="front_caster_link" />
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="front_caster_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.0165" />
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 0.95" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- standoff1_1 -->
+  <joint name="standoff1_1_joint" type="fixed">
+    <origin xyz="0.06 0.10 0.035" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="standoff1_1_link" />
+  </joint>
+
+  <link name="standoff1_1_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.07" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.16 0.17 0.15 0.9" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- standoff1_2 -->
+  <joint name="standoff1_2_joint" type="fixed">
+    <origin xyz="0.06 -0.10 0.035" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="standoff1_2_link" />
+  </joint>
+
+  <link name="standoff1_2_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.07" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.16 0.17 0.15 0.9" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- standoff1_3 -->
+  <joint name="standoff1_3_joint" type="fixed">
+    <origin xyz="-0.09 0.07 0.035" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="standoff1_3_link" />
+  </joint>
+
+  <link name="standoff1_3_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.07" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.16 0.17 0.15 0.9" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- standoff1_4 -->
+  <joint name="standoff1_4_joint" type="fixed">
+    <origin xyz="-0.09 -0.07 0.035" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="standoff1_4_link" />
+  </joint>
+
+  <link name="standoff1_4_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.07" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.16 0.17 0.15 0.9" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- standoff2_1 -->
+  <joint name="standoff2_1_joint" type="fixed">
+    <origin xyz="0.06 0.10 0.035" rpy="0 0 0" />
+    <parent link="plate_1_link" />
+    <child link="standoff2_1_link" />
+  </joint>
+
+  <link name="standoff2_1_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.07" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.16 0.17 0.15 0.9" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- standoff2_2 -->
+  <joint name="standoff2_2_joint" type="fixed">
+    <origin xyz="0.06 -0.10 0.035" rpy="0 0 0" />
+    <parent link="plate_1_link" />
+    <child link="standoff2_2_link" />
+  </joint>
+
+  <link name="standoff2_2_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.07" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.16 0.17 0.15 0.9" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- standoff2_3 -->
+  <joint name="standoff2_3_joint" type="fixed">
+    <origin xyz="-0.09 0.07 0.035" rpy="0 0 0" />
+    <parent link="plate_1_link" />
+    <child link="standoff2_3_link" />
+  </joint>
+
+  <link name="standoff2_3_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.07" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.16 0.17 0.15 0.9" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- standoff2_4 -->
+  <joint name="standoff2_4_joint" type="fixed">
+    <origin xyz="-0.09 -0.07 0.035" rpy="0 0 0" />
+    <parent link="plate_1_link" />
+    <child link="standoff2_4_link" />
+  </joint>
+
+  <link name="standoff2_4_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.07" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.16 0.17 0.15 0.9" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- plate_1 -->
+  <joint name="plate_1_joint" type="fixed">
+    <origin xyz="0 0 0.07" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="plate_1_link" />
+  </joint>
+
+  <link name="plate_1_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.005" radius="0.13" />
+      </geometry>
+      <material name="yellow">
+        <color rgba="1 0.4 0 1" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- plate_2 -->
+  <joint name="plate_2_joint" type="fixed">
+    <origin xyz="0 0 0.07" rpt="0 0 0" />
+    <parent link="plate_1_link" />
+    <child link="plate_2_link" />
+  </joint>
+
+  <link name="plate_2_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder length="0.005" radius="0.13" />
+      </geometry>
+      <material name="yellow">
+        <color rgba="1 0.4 0 1" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- kenetic -->
+  <joint name="kinetic_joint" type="fixed">
+    <origin xyz ="-0.06 0 0.035" />
+    <parent link="plate_2_link" />
+    <child link="kinetic_link" />
+  </joint>
+
+  <link name="kinetic_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 1.5708" />
+      <geometry>
+        <mesh filename="package://mbot_description/meshes/kinect.dae" />
+      </geometry>
+    </visual>
+  </link>
+
+</robot>
