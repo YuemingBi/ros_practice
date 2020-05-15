@@ -1,0 +1,5 @@
+<launch>
+    <!-- 运行rviz可视化界面 -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_description)/config/robot.rviz" required="true" />
+
+</launch>
